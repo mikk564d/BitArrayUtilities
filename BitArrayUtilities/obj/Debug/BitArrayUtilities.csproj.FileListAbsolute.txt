@@ -1,0 +1,5 @@
+C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilities\bin\Debug\BitArrayUtilities.dll
+C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilities\bin\Debug\BitArrayUtilities.pdb
+C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilities\obj\Debug\BitArrayUtilities.csprojResolveAssemblyReference.cache
+C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilities\obj\Debug\BitArrayUtilities.dll
+C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilities\obj\Debug\BitArrayUtilities.pdb
