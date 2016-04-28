@@ -1,9 +1,0 @@
-C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilitiesTest\obj\Debug\BitArrayUtilitiesTest.csprojResolveAssemblyReference.cache
-C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilitiesTest\bin\Debug\BitArrayUtilitiesTest.dll
-C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilitiesTest\bin\Debug\BitArrayUtilitiesTest.pdb
-C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilitiesTest\bin\Debug\BitArrayUtilities.dll
-C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilitiesTest\bin\Debug\nunit.framework.dll
-C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilitiesTest\bin\Debug\BitArrayUtilities.pdb
-C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilitiesTest\bin\Debug\nunit.framework.xml
-C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilitiesTest\obj\Debug\BitArrayUtilitiesTest.dll
-C:\Users\Mikke\Documents\GitHub\BitArrayUtilities\BitArrayUtilitiesTest\obj\Debug\BitArrayUtilitiesTest.pdb

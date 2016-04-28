@@ -6,8 +6,8 @@
     <ProjectGuid>{F4D8F927-52E5-4687-9F0F-CDFF8E41136F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BitArrayUtilitiesTest</RootNamespace>
-    <AssemblyName>BitArrayUtilitiesTest</AssemblyName>
+    <RootNamespace>UtilitiesTest</RootNamespace>
+    <AssemblyName>UtilitiesTest</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -51,9 +51,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BitArrayUtilities\BitArrayUtilities.csproj">
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{57cf436c-5b43-454d-b49a-a4e1f351ff59}</Project>
-      <Name>BitArrayUtilities</Name>
+      <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

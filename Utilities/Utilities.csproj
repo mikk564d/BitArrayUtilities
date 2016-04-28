@@ -7,8 +7,8 @@
     <ProjectGuid>{57CF436C-5B43-454D-B49A-A4E1F351FF59}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BitArrayUtilities</RootNamespace>
-    <AssemblyName>BitArrayUtilities</AssemblyName>
+    <RootNamespace>Utilities</RootNamespace>
+    <AssemblyName>Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

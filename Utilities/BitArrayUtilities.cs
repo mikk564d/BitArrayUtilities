@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Diagnostics.Contracts;
 
-namespace BitArrayUtilities {
+namespace Utilities {
     public static class BitArrayUtilities {
         /// <summary>
         /// Change the endian encoding for the BitArray.

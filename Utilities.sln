@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitArrayUtilities", "BitArrayUtilities\BitArrayUtilities.csproj", "{57CF436C-5B43-454D-B49A-A4E1F351FF59}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{57CF436C-5B43-454D-B49A-A4E1F351FF59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitArrayUtilitiesTest", "BitArrayUtilitiesTest\BitArrayUtilitiesTest.csproj", "{F4D8F927-52E5-4687-9F0F-CDFF8E41136F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilitiesTest", "UtilitiesTest\UtilitiesTest.csproj", "{F4D8F927-52E5-4687-9F0F-CDFF8E41136F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
