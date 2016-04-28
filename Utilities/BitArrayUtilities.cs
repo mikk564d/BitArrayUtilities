@@ -8,7 +8,8 @@ namespace Utilities {
         /// </summary>
         /// <param name="bitArray"></param>
         /// <returns>Returns BitArray with changed endian encoding.</returns>
-        public static BitArray ReverseEndianOnBitArray(BitArray bitArray) {
+        public static BitArray ChangeEndianOnBitArray(BitArray bitArray) {
+            Contract.Requires(bitArray != null);
             Contract.Requires(bitArray.Count % 8 == 0);
             for (int i = 0; i < bitArray.Count / 8; i++) {
                 for (int k = i * 8, j = (1 + i) * 8 - 1, count = 0; count < 4; ++k, --j, count++) {
@@ -27,7 +28,7 @@ namespace Utilities {
         /// <param name="bitArray"></param>
         /// <returns>Returns BitArray with the bits in the reverse order.</returns>
         public static BitArray ReverseBitArray(BitArray bitArray) {
-            Contract.Requires(bitArray.Count % 2 == 0);
+            Contract.Requires(bitArray != null);
             for (int i = 0, j = bitArray.Count - 1; i < bitArray.Count / 2; i++, j--) {
                 bool temp = bitArray[i];
                 bitArray[i] = bitArray[j];
@@ -44,6 +45,7 @@ namespace Utilities {
         /// <param name="ba2"></param>
         /// <returns>Returns true if equals.</returns>
         public static bool CompareBitArray(BitArray ba1, BitArray ba2) {
+            Contract.Requires(ba1 != null && ba2 != null);
             if (ba1.Length != ba2.Length) {
                 return false;
             }

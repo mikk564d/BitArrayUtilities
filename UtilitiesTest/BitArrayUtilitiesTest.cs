@@ -5,28 +5,40 @@ using Utilities;
 namespace UtilitiesTest {
     [TestFixture]
     public class BitArrayUtilitiesTest {
-        private BitArray ExpectedBitArray { get; set; }
 
-        [SetUp]
-        public void Init() {
-            ExpectedBitArray = new BitArray(new[] {true, true, true, true, false, false, false, false, true, true, true, true, false, false, false, false });
-        }
         [Test]
         public void ReverseEndianOnBitArray_SimpleValues_ChangedEndian() {
-            ExpectedBitArray = BitArrayUtilities.ReverseEndianOnBitArray(ExpectedBitArray);
+            BitArray bitArray = new BitArray(new[] {true, true, false, false, true, false, true, false,
+                                                    true, true, true, true, false, false, false, false });
 
-            BitArray bitArray = new BitArray(new[] {false, false, false, false, true, true, true, true, false, false, false, false, true, true, true, true });
+            bitArray = BitArrayUtilities.ChangeEndianOnBitArray(bitArray);
 
-            Assert.AreEqual(ExpectedBitArray, bitArray);
+            BitArray expectedBitArray = new BitArray(new[] {false, true, false, true, false, false, true, true,
+                                                            false, false, false, false, true, true, true, true });
+
+            Assert.AreEqual(bitArray, expectedBitArray);
         }
 
         [Test]
-        public void ReverseBitArray_SimpleValues_BitArrayReversed() {
-            ExpectedBitArray = BitArrayUtilities.ReverseBitArray(ExpectedBitArray);
+        public void ReverseBitArray_SimpleEvenValues_BitArrayReversed() {
+            BitArray bitArray = new BitArray(new[] {true, true, false, false, true, false, true, false,
+                                                    true, true, true, true, false, false, false, false });
 
-            BitArray bitArray = new BitArray(new[] {false, false, false, false, true, true, true, true, false, false, false, false, true, true, true, true});
+            bitArray = BitArrayUtilities.ReverseBitArray(bitArray);
 
-            Assert.AreEqual(ExpectedBitArray, bitArray);
+            BitArray expectedBitArray = new BitArray(new[] {false, false, false, false, true, true, true, true,
+                                                            false, true, false, true, false, false, true, true});
+
+            Assert.AreEqual(bitArray, expectedBitArray);
+        }
+
+        public void ReverseBitArray_SimpleOddValues_BitArrayReversed() {
+            BitArray bitArray = new BitArray(new [] {true, false, true, false, false, true, true});
+            bitArray = BitArrayUtilities.ReverseBitArray(bitArray);
+
+            BitArray expectedBitArray = new BitArray(new[] {true, true, false, false, true, false, true});
+
+            Assert.AreEqual(bitArray, expectedBitArray);
         }
 
         [Test]
@@ -37,6 +49,16 @@ namespace UtilitiesTest {
             bool equals = BitArrayUtilities.CompareBitArray(bitArray1, bitArray2);
 
             Assert.IsTrue(equals);
+        }
+
+        [Test]
+        public void CompareBitArrays_SimpleValues_NotEquals() {
+            BitArray bitArray1 = new BitArray(new[] { false, false, false, false, true, true, true, true });
+            BitArray bitArray2 = new BitArray(new[] { true, false, false, false, true, true, true, true });
+
+            bool equals = BitArrayUtilities.CompareBitArray(bitArray1, bitArray2);
+
+            Assert.IsFalse(equals);
         }
     }
 }
