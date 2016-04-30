@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using NUnit.Framework;
 using Utilities;
 
@@ -59,6 +60,108 @@ namespace UtilitiesTest {
             bool equals = BitArrayUtilities.CompareBitArray(bitArray1, bitArray2);
 
             Assert.IsFalse(equals);
+        }
+
+        [Test]
+        public void CombineTwoBitArrays_SimpleValues_Calculated()
+        {
+            BitArray bitArray = new BitArray(new[] {true, true, false, false, true, false, true, false});
+            BitArray bitArray2 = new BitArray(new [] {true, true, true, true, false, false, false, false});
+
+            BitArray resultArray = BitArrayUtilities.CombineTwoBitArrays(bitArray, bitArray2);
+            
+            BitArray expectedBitArray = new BitArray(new[] {true, true, false, false, true, false, true, false,
+                                                            true, true, true, true, false, false, false, false});
+
+            Assert.AreEqual(expectedBitArray, resultArray);
+        }
+
+        [Test]
+        public void CombineTwoBitArrays_FirstArrayEmpty_Calculated()
+        {
+            BitArray bitArray = new BitArray(0);
+            BitArray bitArray2 = new BitArray(new[] { true, true, true, true, false, false, false, false });
+
+            BitArray resultArray = BitArrayUtilities.CombineTwoBitArrays(bitArray, bitArray2);
+
+            BitArray expectedBitArray = new BitArray(new[] {true, true, true, true, false, false, false, false});
+
+            Assert.AreEqual(expectedBitArray, resultArray);
+        }
+
+        [Test]
+        public void CombineTwoBitArrays_SecondArrayEmpty_Calculated()
+        {
+            BitArray bitArray = new BitArray(new[] { true, true, false, false, true, false, true, false });
+            BitArray bitArray2 = new BitArray(0);
+
+            BitArray resultArray = BitArrayUtilities.CombineTwoBitArrays(bitArray, bitArray2);
+
+            BitArray expectedBitArray = new BitArray(new[] {true, true, false, false, true, false, true, false});
+
+            Assert.AreEqual(expectedBitArray, resultArray);
+        }
+
+        [Test]
+        public void TakeSubBitArrayFromEnd_SimpleValue_Calculated()
+        {
+            BitArray bitArray = new BitArray(new[] { true, true, false, false, true, true, true, false });
+
+            BitArray resultArray = BitArrayUtilities.TakeSubBitArrayFromEnd(bitArray, 3);
+
+            BitArray expectedTakenBitArray = new BitArray(new[] { false, true, true });
+            BitArray expectedBitArray = new BitArray(new [] { true, true, false, false, true });
+
+            Assert.AreEqual(expectedBitArray, bitArray);
+            Assert.AreEqual(expectedTakenBitArray, resultArray);
+        }
+
+        [Test]
+        public void MakeBitArrayDivisible_SimpleValueRoundDown_Calculated()
+        {
+            BitArray bitArray = new BitArray(new[] { true, true, false, false, true, true, true, false });
+
+            BitArrayUtilities.MakeBitArrayDivisible(bitArray, 3, false);
+           
+            BitArray expectedBitArray = new BitArray(new[] { true, true, false, false, true, true});
+
+            Assert.AreEqual(expectedBitArray, bitArray);
+        }
+
+        [Test]
+        public void MakeBitArrayDivisible_SimpleValueRoundUp_Calculated()
+        {
+            BitArray bitArray = new BitArray(new[] { true, true, false, false, true, true, true, false });
+
+            BitArrayUtilities.MakeBitArrayDivisible(bitArray, 3, true);
+
+            BitArray expectedBitArray = new BitArray(new[] { true, true, false, false, true, true, true, false, false});
+
+            Assert.AreEqual(expectedBitArray, bitArray);
+        }
+
+        [Test]
+        public void MakeBitArrayDivisible_SimpleValueHighDivisorRoundDown_Calculated()
+        {
+            BitArray bitArray = new BitArray(new[] { true, true, false, false, true, true, true, false });
+
+            BitArrayUtilities.MakeBitArrayDivisible(bitArray, 10, false);
+
+            BitArray expectedBitArray = new BitArray(0);
+
+            Assert.AreEqual(expectedBitArray, bitArray);
+        }
+
+        [Test]
+        public void MakeBitArrayDivisible_SimpleValueHighDivisorRoundUp_Calculated()
+        {
+            BitArray bitArray = new BitArray(new[] { true, true, false, false, true, true, true, false });
+
+            BitArrayUtilities.MakeBitArrayDivisible(bitArray, 10, true);
+
+            BitArray expectedBitArray = new BitArray(new[] { true, true, false, false, true, true, true, false, false, false });
+
+            Assert.AreEqual(expectedBitArray, bitArray);
         }
     }
 }
