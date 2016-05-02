@@ -18,11 +18,12 @@ namespace Utilities {
             Contract.Requires<ArgumentNullException>(bitArray != null);
             Contract.Requires<ArgumentException>(bitArray.Count % 8 == 0);
 
-            for (int i = 0; i < bitArray.Count / 8; i++) {
-                for (int k = i * 8, j = (1 + i) * 8 - 1, count = 0; count < 4; ++k, --j, count++) {
-                    bool temp = bitArray[k];
-                    bitArray[k] = bitArray[j];
-                    bitArray[j] = temp;
+            for (int byteIndex = 0; byteIndex < bitArray.Count / 8; byteIndex++) {
+                int startOfByteIndex = byteIndex * 8, endOfByteIndex = (1 + byteIndex) * 8 - 1;
+                for (; startOfByteIndex < endOfByteIndex; ++startOfByteIndex, --endOfByteIndex) {
+                    bool temp = bitArray[startOfByteIndex];
+                    bitArray[startOfByteIndex] = bitArray[endOfByteIndex];
+                    bitArray[endOfByteIndex] = temp;
                 }
             }
 
