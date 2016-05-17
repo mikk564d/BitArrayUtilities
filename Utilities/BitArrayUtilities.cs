@@ -14,7 +14,7 @@ namespace Utilities {
         /// </summary>
         /// <param name="bitArray"><see cref="BitArray"/> were endian will be changed.</param>
         /// <returns>Returns BitArray with changed endian encoding.</returns>
-        public static BitArray ChangeEndianOnBitArray(BitArray bitArray) {
+        public static void ChangeEndianOnBitArray(BitArray bitArray) {
             Contract.Requires<ArgumentNullException>(bitArray != null);
             Contract.Requires<ArgumentException>(bitArray.Count % 8 == 0);
 
@@ -26,8 +26,6 @@ namespace Utilities {
                     bitArray[endOfByteIndex] = temp;
                 }
             }
-
-            return bitArray;
         }
 
         /// <summary>
@@ -35,15 +33,14 @@ namespace Utilities {
         /// </summary>
         /// <param name="bitArray">The <see cref="BitArray"/> to reverse.</param>
         /// <returns>Returns BitArray with the bits in the reverse order.</returns>
-        public static BitArray ReverseBitArray(BitArray bitArray) {
+        public static void ReverseBitArray(BitArray bitArray) {
             Contract.Requires<ArgumentNullException>(bitArray != null);
+
             for (int i = 0, j = bitArray.Count - 1; i < bitArray.Count / 2; i++, j--) {
                 bool temp = bitArray[i];
                 bitArray[i] = bitArray[j];
                 bitArray[j] = temp;
             }
-
-            return bitArray;
         }
 
         /// <summary>
@@ -93,6 +90,24 @@ namespace Utilities {
             return ba1;
         }
 
+
+        /// <summary>
+        /// Overwrites a <see cref="BitArray"/> at the specified <paramref name="startIndex"/>
+        /// with <paramref name="replacementArray"/>.
+        /// </summary>
+        /// <param name="arrayToOverwrite">Overwritten <see cref="BitArray"/>.</param>
+        /// <param name="replacementArray">The array that will be place on <paramref name="arrayToOverwrite"/>.</param>
+        /// <param name="startIndex">Start index to replace at.</param>
+        public static void OverwriteBitArrayAtIndex(BitArray arrayToOverwrite, BitArray replacementArray, int startIndex) {
+            Contract.Requires<ArgumentNullException>(arrayToOverwrite != null && replacementArray != null);
+            Contract.Requires<IndexOutOfRangeException>(startIndex >= 0 
+                && (replacementArray.Count + startIndex <= arrayToOverwrite.Count));
+
+            for (int i = 0; i < replacementArray.Count; i++) {
+                arrayToOverwrite[startIndex + i] = replacementArray[i];
+            }
+        }
+
         /// <summary>
         /// Takes a sub <see cref="BitArray"/> with specified <paramref name="length"/> from the end.
         /// The start index value of the sub <see cref="BitArray"/>
@@ -123,8 +138,7 @@ namespace Utilities {
         /// <param name="bitArray">The <see cref="BitArray"/> to make divisible.</param>
         /// <param name="divisor">The divisor for the modulo calculation.</param>
         /// <param name="roundUp">Boolean value to determine the rounding.</param>
-        public static void MakeBitArrayDivisible(BitArray bitArray, int divisor, bool roundUp)
-        {
+        public static void MakeBitArrayDivisible(BitArray bitArray, int divisor, bool roundUp) {
             Contract.Requires<ArgumentNullException>(bitArray != null);
             Contract.Requires<ArgumentOutOfRangeException>(divisor > 0);
 
